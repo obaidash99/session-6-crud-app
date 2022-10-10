@@ -1,36 +1,62 @@
+import { useState } from 'react';
+import axios from 'axios';
+
+import './Products.css';
+import { useNavigate } from 'react-router-dom';
+
 function AddProduct() {
+	const [title, setTitle] = useState('');
+	const [price, setPrice] = useState(0);
+
+	let navigate = useNavigate();
+
+	const formSubmit = (e) => {
+		e.preventDefault();
+
+		axios
+			.post(`http://localhost:9000/products`, {
+				title,
+				price,
+			})
+			.then((data) => navigate('/products'));
+	};
+
 	return (
 		<>
 			<h1>Add New Product</h1>
-			<form>
-				<div class="mb-3">
-					<label for="exampleInputEmail1" class="form-label">
-						Email address
+			<form className="add-from" onSubmit={formSubmit}>
+				<div className="mb-3">
+					<label htmlFor="productTitle" className="form-label">
+						Title
 					</label>
 					<input
-						type="email"
-						class="form-control"
-						id="exampleInputEmail1"
-						aria-describedby="emailHelp"
+						type="text"
+						className="form-control"
+						id="productTitle"
+						placeholder="Product Title"
+						aria-describedby="Product title"
+						onChange={(e) => {
+							setTitle(e.target.value);
+						}}
 					/>
-					<div id="emailHelp" class="form-text">
-						We'll never share your email with anyone else.
-					</div>
 				</div>
-				<div class="mb-3">
-					<label for="exampleInputPassword1" class="form-label">
-						Password
+				<div className="mb-3">
+					<label htmlFor="productPrice" className="form-label">
+						Price
 					</label>
-					<input type="password" class="form-control" id="exampleInputPassword1" />
+					<input
+						type="number"
+						className="form-control"
+						id="productPrice"
+						placeholder="Product Price"
+						aria-describedby="Product price"
+						onChange={(e) => {
+							setPrice(+e.target.value);
+						}}
+					/>
 				</div>
-				<div class="mb-3 form-check">
-					<input type="checkbox" class="form-check-input" id="exampleCheck1" />
-					<label class="form-check-label" for="exampleCheck1">
-						Check me out
-					</label>
-				</div>
-				<button type="submit" class="btn btn-primary">
-					Submit
+				<button type="submit" className="btn btn-primary">
+					Add Product
 				</button>
 			</form>
 		</>

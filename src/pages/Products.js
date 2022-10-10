@@ -35,7 +35,7 @@ function Products() {
 	return (
 		<>
 			<h1>Products Pgae</h1>
-			<Link className="btn btn-success mt-3" to="add">
+			<Link className="btn btn-success mt-3" to="/products/add">
 				Add New Product
 			</Link>
 			<table className="table table-striped mt-5 products-table">
@@ -43,7 +43,7 @@ function Products() {
 					<tr>
 						<th>ID</th>
 						<th>Title</th>
-						<th>Description</th>
+						{/* <th>Description</th> */}
 						<th>Price</th>
 						<th>Operations</th>
 					</tr>
@@ -53,7 +53,7 @@ function Products() {
 						<tr key={product.id}>
 							<td>{product.id}</td>
 							<td>{product.title}</td>
-							<td>{product.description.slice(0, 70)}...</td>
+							{/* <td>{product.description.slice(0,70)}...</td> */}
 							<td>{product.price}</td>
 							<td>
 								<button
