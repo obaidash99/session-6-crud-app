@@ -3,9 +3,11 @@ import { Routes, Route } from 'react-router-dom';
 import './App.css';
 import Navbar from './components/Navbar';
 import Sidebar from './components/Sidebar';
+
 import AddProduct from './pages/AddProduct';
 import Home from './pages/Home';
 import Products from './pages/Products';
+import ProductDetails from './pages/ProductDetails';
 
 function App() {
 	return (
@@ -19,7 +21,8 @@ function App() {
 					<Routes>
 						<Route path="/" element={<Home />} />
 						<Route path="/products" element={<Products />} />
-						<Route path="/products/add" element={<AddProduct />} />
+						<Route path="products/add" element={<AddProduct />} />
+						<Route path="products/:productId" element={<ProductDetails />} />
 					</Routes>
 				</div>
 			</div>
