@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import EditProduct from './EditProduct';
 
 import './Products.css';
 
@@ -65,7 +66,12 @@ function Products() {
 								<Link className="btn btn-info btn-sm" to={`/products/${product.id}`}>
 									View
 								</Link>
-								<button className="btn btn-primary btn-sm">Edit</button>
+								<Link
+									className="btn btn-primary btn-sm"
+									to={`/products/edit/${product.id}`}
+								>
+									Edit
+								</Link>
 							</td>
 						</tr>
 					))}

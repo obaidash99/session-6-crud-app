@@ -8,6 +8,7 @@ import AddProduct from './pages/AddProduct';
 import Home from './pages/Home';
 import Products from './pages/Products';
 import ProductDetails from './pages/ProductDetails';
+import EditProduct from './pages/EditProduct';
 
 function App() {
 	return (
@@ -30,6 +31,16 @@ function App() {
 						>
 							<Route path="" element={<Products />} />
 							<Route path="add" element={<AddProduct />} />
+							<Route
+								path="edit"
+								element={
+									<>
+										<Outlet />{' '}
+									</>
+								}
+							>
+								<Route path=":productId" element={<EditProduct />} />
+							</Route>
 							<Route path=":productId" element={<ProductDetails />} />
 						</Route>
 					</Routes>
