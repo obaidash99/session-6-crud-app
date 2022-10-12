@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Outlet } from 'react-router-dom';
 
 import './App.css';
 import Navbar from './components/Navbar';
@@ -20,9 +20,18 @@ function App() {
 				<div className="col-10">
 					<Routes>
 						<Route path="/" element={<Home />} />
-						<Route path="/products" element={<Products />} />
-						<Route path="products/add" element={<AddProduct />} />
-						<Route path="products/:productId" element={<ProductDetails />} />
+						<Route
+							path="/products"
+							element={
+								<>
+									<Outlet />
+								</>
+							}
+						>
+							<Route path="" element={<Products />} />
+							<Route path="add" element={<AddProduct />} />
+							<Route path=":productId" element={<ProductDetails />} />
+						</Route>
 					</Routes>
 				</div>
 			</div>

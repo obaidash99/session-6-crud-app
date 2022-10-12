@@ -13,12 +13,29 @@ function AddProduct() {
 	const formSubmit = (e) => {
 		e.preventDefault();
 
-		axios
-			.post(`http://localhost:9000/products`, {
+		// 	axios
+		// 		.post(`http://localhost:9000/products`, {
+		// 			title,
+		// 			price,
+		// 		})
+		// 		.then((data) => navigate('/products'));
+		// };
+
+		fetch('http://localhost:9000/products', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'Application/json',
+			},
+			body: JSON.stringify({
 				title,
 				price,
-			})
-			.then((data) => navigate('/products'));
+			}),
+		})
+			.then((res) => res.json())
+			.then((data) => {
+				console.log(data);
+				navigate('/products');
+			});
 	};
 
 	return (
@@ -62,4 +79,5 @@ function AddProduct() {
 		</>
 	);
 }
+
 export default AddProduct;
