@@ -22,7 +22,7 @@ function ProductDetails() {
 					<div className="product-details">
 						<img src={productDetails.image} alt={productDetails.title} />
 						<div className="info">
-							{/* <p>{productDetails.description}</p> */}
+							<p>{productDetails.description}</p>
 							<strong>Price: {productDetails.price}</strong>
 						</div>
 					</div>
