@@ -9,6 +9,8 @@ import Home from './pages/Home';
 import Products from './pages/Products';
 import ProductDetails from './pages/ProductDetails';
 import EditProduct from './pages/EditProduct';
+import Categories from './pages/Categories';
+import CategoryProducts from './pages/CategoryProducts';
 
 function App() {
 	return (
@@ -42,6 +44,17 @@ function App() {
 								<Route path=":productId" element={<EditProduct />} />
 							</Route>
 							<Route path=":productId" element={<ProductDetails />} />
+						</Route>
+						<Route
+							path="/categories"
+							element={
+								<>
+									<Outlet />
+								</>
+							}
+						>
+							<Route path="" element={<Categories />} />
+							<Route path=":category" element={<CategoryProducts />} />
 						</Route>
 					</Routes>
 				</div>

@@ -8,7 +8,7 @@ function Sidebar() {
 					<Link to="/products">Get all Products</Link>
 				</li>
 				<li>
-					<Link to="/">Get all Categories</Link>
+					<Link to="/categories">Get all Categories</Link>
 				</li>
 			</ul>
 		</>

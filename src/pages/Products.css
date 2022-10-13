@@ -18,3 +18,32 @@
 	width: 80%;
 	margin: 1%;
 }
+
+.category-parent {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 50px;
+	padding: 30px 0;
+}
+.category-card {
+	padding: 10px;
+	text-align: center;
+	border: 1px solid #eee;
+	border-radius: 6px;
+	text-decoration: none;
+	color: black;
+	text-transform: capitalize;
+	transition: all 0.3s ease;
+}
+.category-card:hover {
+	border-color: aqua;
+	border-width: 1.5px;
+}
+.category-card h4 {
+	padding: 15px;
+}
+.category-img {
+	height: 200px;
+	width: 200px;
+}

@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
-import EditProduct from './EditProduct';
 
 import './Products.css';
 
@@ -15,7 +14,10 @@ function Products() {
 	const getAllProducts = () => {
 		fetch('http://localhost:9000/products')
 			.then((res) => res.json())
-			.then((data) => setProducts(data));
+			.then((data) => {
+				setProducts(data);
+				// console.log(products);
+			});
 	};
 
 	const deleteProduct = (product) => {
