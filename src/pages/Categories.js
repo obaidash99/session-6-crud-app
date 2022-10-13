@@ -22,7 +22,11 @@ function Categories() {
 			<h1>Categories Page</h1>
 			<div className="category-parent">
 				{categories.map((category) => (
-					<Link className="category-card" key={category.id} to={`/${category.category}`}>
+					<Link
+						className="category-card"
+						key={category.id}
+						to={`category/${category.category}`}
+					>
 						<img src={category.image} alt={category.category} className="category-img" />
 						<h4>{category.category}</h4>
 					</Link>
